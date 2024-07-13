@@ -1,0 +1,37 @@
+.home_nav{
+    width: 100vw;
+    height: 100px;
+    background-color: black;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home_sub{
+    padding: 5px;
+    border: 1px solid rgb(197, 197, 197);
+    margin: 5px;
+    border-radius: 10px;
+    max-Height: 80vh;
+    overflow: auto;
+}
+.home_sub_btns{
+    display: flex;
+    justify-content: space-between;
+}
+.modal_inputs{
+    padding: 5px;
+}
+.home_form{
+    display: flex;
+    flex-direction: column;
+}
+.table_row{
+    background-color: red;
+}
+.logoutbtn{
+    display: flex;
+    justify-content: center;
+}
