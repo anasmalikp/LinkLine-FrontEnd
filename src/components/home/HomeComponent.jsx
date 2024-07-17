@@ -35,12 +35,13 @@ const HomeComponent = () => {
     const [newContact, setNewContact] = useState()
     const [users, setUsers] = useState([])
     const [isSpam, setIsSpam] = useState(false)
+    const [pageNo, setPageNo] = useState(1)
     const fetchContacts = async () => {
         if (isSpam) {
-            const response = await GetAllContacts("spam")
+            const response = await GetAllContacts("spam", pageNo)
             setData(response)
         } else {
-            const response = await GetAllContacts("all")
+            const response = await GetAllContacts("all", pageNo)
             setData(response)
         }
     }
@@ -85,7 +86,7 @@ const HomeComponent = () => {
     useEffect(() => {
         fetchContacts()
         AllUsers()
-    }, [isSpam])
+    }, [isSpam, pageNo])
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
@@ -101,7 +102,7 @@ const HomeComponent = () => {
                     {isSpam ? <Button onClick={() => setIsSpam(false)}>View All</Button> : <Button onClick={() => setIsSpam(true)}>Sort Spam</Button>}
                 </div>
                 <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <Table className='table' sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Name</TableCell>
@@ -133,6 +134,13 @@ const HomeComponent = () => {
                             ))}
                         </TableBody>
                     </Table>
+                    <div className='pagination'>
+                    {pageNo<=1? <Button disabled>Previous</Button> : <Button onClick={()=> setPageNo(pageNo - 1)}>Previous</Button>}
+                    <p>{pageNo}</p>
+                    <Button onClick={()=>{
+                        setPageNo(pageNo+1)
+                    }}>Next</Button>
+                    </div>
                 </TableContainer>
             </div>
             <Modal

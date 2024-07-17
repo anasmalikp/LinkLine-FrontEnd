@@ -1,9 +1,9 @@
 import axios from "axios"
 import Cookies from "js-cookie"
 
-export const GetAllContacts = async(type)=>{
+export const GetAllContacts = async(type, page)=>{
     try{
-        const response = await axios.get(`https://localhost:7090/api/Contact?type=${type}`,{
+        const response = await axios.get(`https://localhost:7090/api/Contact?type=${type}&page=${page}`,{
             headers:{
                 "Authorization":`Bearer ${Cookies.get('token')}`
             }

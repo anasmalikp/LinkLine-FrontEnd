@@ -14,7 +14,7 @@
     border: 1px solid rgb(197, 197, 197);
     margin: 5px;
     border-radius: 10px;
-    max-Height: 80vh;
+    height: 80vh;
     overflow: auto;
 }
 .home_sub_btns{
@@ -34,4 +34,19 @@
 .logoutbtn{
     display: flex;
     justify-content: center;
+}
+.pagination{
+    display: flex;
+    justify-content: space-between;
+}
+.pagination > p{
+    border-radius: 50px;
+    /* border: 1px solid black; */
+    padding: 5px;
+    color: white;
+    background-color: cadetblue;
+
+}
+.table{
+    height: 10vh;
 }
